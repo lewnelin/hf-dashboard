@@ -1,0 +1,28 @@
+{# @var plugin \healthfirst\hfdashboard\Plugin #}
+{# @var settings \healthfirst\hfdashboard\models\Settings #}
+
+<h2></h2>
+<div class="box_general padding_bottom">
+    <div class="header_box version_2" style="max-width: 300px">
+        <h2><i class="fa fa-bar-chart"></i>Statistics</h2>
+        <canvas id="myPieChart"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const ctx = document.getElementById('myPieChart');
+  
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5],
+      }]
+    }
+  });
+</script>
+{# ... #}
