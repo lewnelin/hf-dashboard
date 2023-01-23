@@ -5,6 +5,12 @@ namespace healthfirst\hfdashboard;
 use Craft;
 use craft\base\Model;
 use craft\base\Plugin as BasePlugin;
+use yii\base\Event;
+use craft\services\Dashboard;
+use craft\web\View;
+use craft\events\RegisterComponentTypesEvent;
+use craft\events\RegisterTemplateRootsEvent;
+use healthfirst\hfdashboard\widgets\AccessMonitor;
 use healthfirst\hfdashboard\models\Settings;
 
 /**
@@ -35,11 +41,17 @@ class Plugin extends BasePlugin
     {
         parent::init();
 
-        // Defer most setup tasks until Craft is fully initialized
-        Craft::$app->onInit(function() {
-            $this->attachEventHandlers();
-            // ...
+        Event::on(Dashboard::class, Dashboard::EVENT_REGISTER_WIDGET_TYPES, static function(RegisterComponentTypesEvent $event) {
+            $event->types[] = AccessMonitor::class;
         });
+
+        Event::on(
+            View::class,
+            View::EVENT_REGISTER_CP_TEMPLATE_ROOTS,
+            static function(RegisterTemplateRootsEvent $event) {
+                $event->roots['_monitoraccess'] = __DIR__ . '/templates';
+            }
+        );
     }
 
     protected function createSettingsModel(): ?Model
