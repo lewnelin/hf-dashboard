@@ -1,8 +1,11 @@
 {
     "name": "healthfirst/hf-dashboard",
     "description": "Dashboard to show receiving form statistics from pages",
+    "version": "1.0.0",
     "type": "craft-plugin",
-    "license": "proprietary",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "support": {
         "email": "aairesvieiradonascim@healthfirst.org",
         "issues": "https://github.com/lewnelin/hf-dashboard/issues?state=open",

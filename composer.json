@@ -1,6 +1,7 @@
 {
   "require": {
     "craftcms/cms": "^4.3.5",
+    "healthfirst/hf-dashboard": "^1.0",
     "shornuk/craft-plausible": "^2.0",
     "vlucas/phpdotenv": "^5.4.0"
   },
