@@ -1,0 +1,48 @@
+{
+    "name": "healthfirst/hf-dashboard",
+    "description": "Dashboard to show receiving form statistics from pages",
+    "type": "craft-plugin",
+    "license": "proprietary",
+    "support": {
+        "email": "aairesvieiradonascim@healthfirst.org",
+        "issues": "https://github.com/lewnelin/hf-dashboard/issues?state=open",
+        "source": "https://github.com/lewnelin/hf-dashboard",
+        "docs": "https://github.com/lewnelin/hf-dashboard",
+        "rss": "https://github.com/lewnelin/hf-dashboard/releases.atom"
+    },
+    "require": {
+        "php": ">=8.0.2",
+        "craftcms/cms": "^4.3.6.1"
+    },
+    "require-dev": {
+        "craftcms/ecs": "dev-main",
+        "craftcms/phpstan": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "healthfirst\\hfdashboard\\": "src/"
+        }
+    },
+    "extra": {
+        "handle": "hf-dashboard",
+        "name": "hf-dashboard",
+        "developer": "Arthur Nascimento",
+        "documentationUrl": "https://github.com/lewnelin/hf-dashboard"
+    },
+    "scripts": {
+        "check-cs": "ecs check --ansi",
+        "fix-cs": "ecs check --ansi --fix",
+        "phpstan": "phpstan --memory-limit=1G"
+    },
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "8.0.2"
+        },
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true
+        }
+    }
+}
+

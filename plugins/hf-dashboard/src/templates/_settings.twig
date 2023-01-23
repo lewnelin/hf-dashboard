@@ -1,0 +1,11 @@
+{# @var plugin \healthfirst\hfdashboard\Plugin #}
+{# @var settings \healthfirst\hfdashboard\models\Settings #}
+
+{% import '_includes/forms.twig' as forms %}
+
+{{ forms.textField({
+    label: 'Dashboard Settings'
+    name: 'dashboard-settings'
+})}}
+
+{# ... #}

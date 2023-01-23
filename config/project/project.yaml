@@ -1,0 +1,35 @@
+dateModified: 1674480077
+email:
+  fromEmail: aairesvieiradonascim@healthfirst.org
+  fromName: 'hf dashboard'
+  transportType: craft\mail\transportadapters\Sendmail
+graphql:
+  publicToken:
+    enabled: false
+    expiryDate: null
+meta:
+  __names__:
+    58d51661-d56c-451c-9531-b543d191ec2d: 'hf dashboard' # hf dashboard
+    080bed92-7630-44fd-8eab-916849de2832: 'hf dashboard' # hf dashboard
+    a64a3461-dc96-4d05-8721-64b2f11bcbae: 'Public Schema'
+    e9f710c8-f2db-4664-b319-fd9c8cf9a66f: Common # Common
+plugins:
+  plausible:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+    settings:
+      apiKey: ii_-OPZkkVaED_Q1THVG40Scyp4I1KnboXkKT_ASD7ay6AEQxSrcUP_49VgI8KCO
+      siteId: hf-dashboard
+system:
+  edition: solo
+  live: true
+  name: 'hf dashboard'
+  schemaVersion: 4.0.0.9
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

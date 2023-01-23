@@ -1,0 +1,9 @@
+baseUrl: $PRIMARY_SITE_URL
+enabled: true
+handle: default
+hasUrls: true
+language: en-US
+name: 'hf dashboard'
+primary: true
+siteGroup: 080bed92-7630-44fd-8eab-916849de2832 # hf dashboard
+sortOrder: 1
