@@ -23,8 +23,8 @@ class m230123_144200_monitor_acess extends Migration
                     'id' => $this->primaryKey(),
 
                     'ip' => $this->string(25),
-                    'page' => $this->string(25),
-                    'formInfo' => $this->string(12),
+                    'page' => $this->string(200),
+                    'formInfo' => $this->json(),
                     'dateCreated' => $this->dateTime(),
                     'dateUpdated' => $this->dateTime(),
                     'dateDeleted' => $this->dateTime()->null(),

@@ -18,7 +18,7 @@ use healthfirst\hfdashboard\models\Settings;
  */
 class Plugin extends BasePlugin
 {
-    public string $schemaVersion = '1.0.0';
+    public string $schemaVersion = '1.0';
     public bool $hasCpSettings = true;
 
     public static function config(): array
