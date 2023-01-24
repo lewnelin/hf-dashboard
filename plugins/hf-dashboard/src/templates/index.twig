@@ -10,7 +10,15 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{# Use for JS file #}
+{% js "/assets/js/chartJs.js" %}
 
+{# Use as a JS code block #}
+{% js %}
+
+console.log(ctx);    
+
+{% endjs %}
 <script>
     const ctx = document.getElementById('myPieChart');
   
