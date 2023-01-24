@@ -6,9 +6,9 @@ use Craft;
 use craft\db\Migration;
 
 /**
- * m230123_144200_monitor_acess migration.
+ * m230123_144200_access_monitor migration.
  */
-class m230123_144200_monitor_acess extends Migration
+class m230123_144200_access_monitor extends Migration
 {
 
     /**
@@ -16,9 +16,9 @@ class m230123_144200_monitor_acess extends Migration
      */
     public function safeUp(): bool
     {
-        if (!$this->db->tableExists('{{%monitor_acess}}')) {
+        if (!$this->db->tableExists('{{%access_monitor}}')) {
             $this->createTable(
-                '{{%monitor_acess}}',
+                '{{%access_monitor}}',
                 [
                     'id' => $this->primaryKey(),
 
@@ -34,16 +34,16 @@ class m230123_144200_monitor_acess extends Migration
 
             $this->createIndex(
                 null,
-                '{{%monitor_acess}}',
+                '{{%access_monitor}}',
                 'id',
                 false
             );
 
-            $this->insert('{{%monitor_acess}}', [
+            $this->insert('{{%access_monitor}}', [
                 'id' => 3250
             ]);
 
-            $this->delete('{{%monitor_acess}}', [
+            $this->delete('{{%access_monitor}}', [
                 'id' => 3250
             ]);
 
@@ -59,7 +59,7 @@ class m230123_144200_monitor_acess extends Migration
      */
     public function safeDown(): bool
     {
-        echo "m230123_144200_monitor_acess cannot be reverted.\n";
-        return false;
+        $this->dropTableIfExists('{{%access_monitor}}');
+        return true;
     }
 }

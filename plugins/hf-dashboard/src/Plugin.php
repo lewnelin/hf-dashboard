@@ -9,8 +9,10 @@ use yii\base\Event;
 use craft\services\Dashboard;
 use craft\web\View;
 use craft\events\RegisterComponentTypesEvent;
+use craft\web\twig\variables\CraftVariable;
 use craft\events\RegisterTemplateRootsEvent;
 use healthfirst\hfdashboard\widgets\AccessMonitor;
+use healthfirst\hfdashboard\variables\AccessMonitorVariable;
 use healthfirst\hfdashboard\models\Settings;
 
 /**
@@ -50,6 +52,19 @@ class Plugin extends BasePlugin
             View::EVENT_REGISTER_CP_TEMPLATE_ROOTS,
             static function(RegisterTemplateRootsEvent $event) {
                 $event->roots['_monitoraccess'] = __DIR__ . '/templates';
+            }
+        );
+
+        /**
+         * Craft Variable
+         */
+        Event::on(
+            CraftVariable::class,
+            CraftVariable::EVENT_INIT,
+            function (Event $event) {
+                /** @var CraftVariable $variable */
+                $variable = $event->sender;
+                $variable->set('accessMonitor', AccessMonitorVariable::class);
             }
         );
     }

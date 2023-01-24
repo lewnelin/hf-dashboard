@@ -20,7 +20,8 @@ class DashboardController extends Controller
     public function actionIndex(): Response
     {
         $entries = craft.entries().section('media', 'insights').all();
-        dd($entries);
+        var_dump($entries);
+        die();
 
 
         $accessData = Access::all();
