@@ -6,6 +6,7 @@
     <div class="header_box version_2" style="max-width: 200px">
         <h2><i class="fa fa-bar-chart"></i>Statistics</h2>
         <div id="graphdata" data-graph="{{ craft.accessMonitor.getAccessMonitor|json_encode }}"></div>
+        <div id="nodata" style="display: none">No Data</div>
         <canvas id="myPieChart"></canvas>
     </div>
 </div>

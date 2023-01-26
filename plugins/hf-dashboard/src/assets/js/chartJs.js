@@ -10,14 +10,19 @@ $(document).ready(function () {
         return e.cnt;
     });
 
-    new Chart(ctx, {
-        type: 'pie', //graphtype
-        data: {
-            labels: labels,
-            datasets: [{
-                label: '# of Accesses',
-                data: data,
-            }]
-        }
-    });
+    if (data.length) {
+        new Chart(ctx, {
+            type: 'pie', //graphtype
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '# of Accesses',
+                    data: data,
+                }]
+            }
+        });
+  } else {
+        document.getElementById('nodata').style.display = 'block';
+        ctx.style.display = 'none';
+  }
 });
