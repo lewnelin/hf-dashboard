@@ -5,7 +5,7 @@
 <div class="box_general padding_bottom">
     <div class="header_box version_2" style="max-width: 200px">
         <h2><i class="fa fa-bar-chart"></i>Statistics</h2>
-        {% set access = craft.accessMonitor.getAccessMonitor %}
+        <div id="graphdata" data-graph="{{ craft.accessMonitor.getAccessMonitor|json_encode }}"></div>
         <canvas id="myPieChart"></canvas>
     </div>
 </div>
