@@ -9,10 +9,11 @@ class Assets extends AssetBundle
 {
     public function init()
     {
-        $this->sourcePath = '/plugins/hf-dashboard/assets';
+        $this->sourcePath = __DIR__ . '/../assets';
         $this->depends = [CpAsset::class];
 
         $this->js = [
+            'js/chart.min.js',
             'js/chartJs.js'
         ];
 
