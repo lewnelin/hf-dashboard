@@ -14,6 +14,7 @@ use craft\events\RegisterTemplateRootsEvent;
 use healthfirst\hfdashboard\widgets\AccessMonitor;
 use healthfirst\hfdashboard\variables\AccessMonitorVariable;
 use healthfirst\hfdashboard\models\Settings;
+use healthfirst\hfdashboard\utils\Assets;
 
 /**
  * hf-dashboard plugin
@@ -65,6 +66,17 @@ class Plugin extends BasePlugin
                 /** @var CraftVariable $variable */
                 $variable = $event->sender;
                 $variable->set('accessMonitor', AccessMonitorVariable::class);
+            }
+        );
+
+        Event::on(
+            View::class,
+            View::EVENT_BEFORE_RENDER_TEMPLATE,
+            static function() {
+                if (Craft::$app->getRequest()->getIsCpRequest()) {
+                    $view = Craft::$app->getView();
+                    $view->registerAssetBundle(Assets::class);
+                }
             }
         );
     }

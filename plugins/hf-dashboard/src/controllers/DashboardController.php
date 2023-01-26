@@ -23,7 +23,6 @@ class DashboardController extends Controller
         var_dump($entries);
         die();
 
-
         $accessData = Access::all();
     }
 }

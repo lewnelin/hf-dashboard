@@ -12,26 +12,4 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 {# Use for JS file #}
-{% js "/assets/js/chartJs.js" %}
-
-{# Use as a JS code block #}
-{% js %}
-
-console.log(ctx);    
-
-{% endjs %}
-<script>
-    const ctx = document.getElementById('myPieChart');
-  
-  new Chart(ctx, {
-    type: 'pie',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5],
-      }]
-    }
-  });
-</script>
 {# ... #}
