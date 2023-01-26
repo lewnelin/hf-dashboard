@@ -8,22 +8,27 @@
  * @license    MIT
  */
 
- namespace healthfirst\hfdashboard\variables;
+namespace healthfirst\hfdashboard\variables;
 
- use healthfirst\hfdashboard\models\Access;
- use yii\db\Query;
+use healthfirst\hfdashboard\models\Access;
+use yii\db\Query;
 
-class AccessMonitorVariable {
+class AccessMonitorVariable
+{
 
-    public function getAccessMonitor () 
+    /**
+     * @return array
+     */
+    public function getAccessMonitor()
     {
         $query = new Query();
-        // compose the query
-        $query->select('id', 'ip')
-            ->from('access_monitor')
-            ->limit(10);
-        $rows = $query->all();
-        return $rows;
 
+        // compose the query
+        $query->select(['COUNT(*) AS cnt', 'page'])
+            ->from('access_monitor')
+            ->groupBy('page');
+        $rows = $query->all();
+
+        return $rows;
     }
 }
