@@ -18,12 +18,20 @@ class AccessMonitor extends Widget
 {
     
 
-    // /**
-    //  * @inheritdoc
-    //  *
-    //  * @throws Twig_Error_LoaderAlias
-    //  * @throws Exception
-    //  */
+    /**
+     * @inheritdoc
+     */
+    public static function displayName(): string
+    {
+        return Craft::t('app', 'Access Monitor');
+    }
+
+    /**
+     * @inheritdoc
+     *
+     * @throws Twig_Error_LoaderAlias
+     * @throws Exception
+     */
     public function getBodyHtml(): ?string
     {
         return Craft::$app->getView()->renderTemplate('_monitoraccess/index',
@@ -32,18 +40,18 @@ class AccessMonitor extends Widget
             ]);
     }
 
-    // /**
-    //  * @inheritdoc
-    //  *
-    //  * @throws Twig_Error_LoaderAlias
-    //  * @throws Exception
-    //  * @throws InvalidConfigException
-    //  */
-    // public function getSettingsHtml()
-    // {
-    //     return Craft::$app->view->renderTemplate('hf-dashboard/_settings.twig', [
-    //         'widget' => $this,
-    //         'settings' => $this->getSettings(),
-    //     ]);
-    // }
+    /**
+     * @inheritdoc
+     *
+     * @throws Twig_Error_LoaderAlias
+     * @throws Exception
+     * @throws InvalidConfigException
+     */
+    public function getSettingsHtml(): ?string
+    {
+        return Craft::$app->view->renderTemplate('_monitoraccess/_settings.twig', [
+            'widget' => $this,
+            'settings' => $this->getSettings(),
+        ]);
+    }
 }
