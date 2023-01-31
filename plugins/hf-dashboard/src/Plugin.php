@@ -42,6 +42,8 @@ class Plugin extends BasePlugin
 
     public function init()
     {
+        self::$plugin = $this;
+
         parent::init();
 
         Event::on(Dashboard::class, Dashboard::EVENT_REGISTER_WIDGET_TYPES, static function(RegisterComponentTypesEvent $event) {
@@ -53,6 +55,18 @@ class Plugin extends BasePlugin
             View::EVENT_REGISTER_CP_TEMPLATE_ROOTS,
             static function(RegisterTemplateRootsEvent $event) {
                 $event->roots['_monitoraccess'] = __DIR__ . '/templates';
+            }
+        );
+
+        
+        /**
+         * Site routing
+         */
+        Event::on(
+            UrlManager::class,
+            UrlManager::EVENT_REGISTER_SITE_URL_RULES,
+            static function (RegisterUrlRulesEvent $event) {
+                $event->rules['refer-submit'] = 'healthfirstrefer/form/submit-form';
             }
         );
 

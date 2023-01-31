@@ -30,7 +30,10 @@
         "handle": "hf-dashboard",
         "name": "hf-dashboard",
         "developer": "Arthur Nascimento",
-        "documentationUrl": "https://github.com/lewnelin/hf-dashboard"
+        "documentationUrl": "https://github.com/lewnelin/hf-dashboard",
+        "components": {
+            "formService": "healthfirst\\hfdashboard\\services\\DashboardService"
+        }
     },
     "scripts": {
         "check-cs": "ecs check --ansi",

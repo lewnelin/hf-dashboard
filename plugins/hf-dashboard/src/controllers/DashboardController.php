@@ -5,24 +5,35 @@ namespace healthfirst\hfdashboard\controllers;
 use Craft;
 use craft\web\Controller;
 use yii\web\Response;
+use healthfirst\hfdashboard\models\AccessModel;
+use healthfirst\hfdashboard\recors\AccessRecord;
 
 /**
  * Dashboard controller
  */
 class DashboardController extends Controller
 {
-    public $defaultAction = 'index';
-    protected array|int|bool $allowAnonymous = self::ALLOW_ANONYMOUS_NEVER;
-
+    
+    protected array|int|bool $allowAnonymous = [
+        'register-hit',
+    ];
     /**
      * hf-dashboard/dashboard action
      */
-    public function actionIndex(): Response
+    public function actionRegisterHit(): Response
     {
-        $entries = craft.entries().section('media', 'insights').all();
-        var_dump($entries);
-        die();
+        if (Craft::$app->request->getIsPost() === true) {
 
-        $accessData = Access::all();
+            $model = new AccessModel();
+            $model->load(Craft::$app->request->post(), '');
+
+            if ($model->validate()) {
+                return $this->asJson(Plugin::$plugin->dashboardService->processData(Craft::$app->request->post()));
+            }
+
+            return $this->asJson(['success' => false, 'error' => $model->getErrorSummary(true)]);
+        }
+
+        return $this->asJson(['success' => false, 'error' => 'Must be $_POST data.']);
     }
 }

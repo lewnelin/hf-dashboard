@@ -22,9 +22,13 @@ class m230123_144200_access_monitor extends Migration
                 [
                     'id' => $this->primaryKey(),
 
-                    'ip' => $this->string(25),
-                    'page' => $this->string(200),
+                    'ip' => $this->string(40),
+                    'language' => $this->string(12),
+                    'site' => $this->string(90),
+                    'url' => $this->string(90),
+                    
                     'formInfo' => $this->json(),
+
                     'dateCreated' => $this->dateTime(),
                     'dateUpdated' => $this->dateTime(),
                     'dateDeleted' => $this->dateTime()->null(),
@@ -60,6 +64,7 @@ class m230123_144200_access_monitor extends Migration
     public function safeDown(): bool
     {
         $this->dropTableIfExists('{{%access_monitor}}');
+        
         return true;
     }
 }

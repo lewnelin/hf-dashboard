@@ -10,7 +10,6 @@
 
 namespace healthfirst\hfdashboard\variables;
 
-use healthfirst\hfdashboard\models\Access;
 use yii\db\Query;
 
 class AccessMonitorVariable
