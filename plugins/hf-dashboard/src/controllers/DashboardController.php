@@ -4,21 +4,23 @@ namespace healthfirst\hfdashboard\controllers;
 
 use Craft;
 use craft\web\Controller;
+use healthfirst\hfdashboard\Plugin;
 use yii\web\Response;
 use healthfirst\hfdashboard\models\AccessModel;
-use healthfirst\hfdashboard\recors\AccessRecord;
+use healthfirst\hfdashboard\records\AccessRecord;
 
 /**
  * Dashboard controller
  */
 class DashboardController extends Controller
 {
-    
-    protected array|int|bool $allowAnonymous = [
+
+    protected array $allowAnonymous = [
         'register-hit',
     ];
+
     /**
-     * hf-dashboard/dashboard action
+     * hf-dashboard/register-hit action
      */
     public function actionRegisterHit(): Response
     {

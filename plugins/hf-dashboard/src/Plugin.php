@@ -5,6 +5,8 @@ namespace healthfirst\hfdashboard;
 use Craft;
 use craft\base\Model;
 use craft\base\Plugin as BasePlugin;
+use craft\events\RegisterUrlRulesEvent;
+use craft\web\UrlManager;
 use yii\base\Event;
 use craft\services\Dashboard;
 use craft\web\View;
@@ -27,6 +29,10 @@ use healthfirst\hfdashboard\utils\Assets;
  */
 class Plugin extends BasePlugin
 {
+    /**
+     * @var Plugin
+     */
+    private static $plugin;
     public string $schemaVersion = '1.0';
     public bool $hasCpSettings = true;
     public bool $hasCpSection = true;
@@ -58,7 +64,6 @@ class Plugin extends BasePlugin
             }
         );
 
-        
         /**
          * Site routing
          */
@@ -66,7 +71,7 @@ class Plugin extends BasePlugin
             UrlManager::class,
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
             static function (RegisterUrlRulesEvent $event) {
-                $event->rules['refer-submit'] = 'healthfirstrefer/form/submit-form';
+                $event->rules['register-hit'] = 'healthfirstrefer/dashboard/register-hit';
             }
         );
 
