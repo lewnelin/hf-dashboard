@@ -71,7 +71,7 @@ class Plugin extends BasePlugin
             UrlManager::class,
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
             static function (RegisterUrlRulesEvent $event) {
-                $event->rules['register-hit'] = 'hfdashboard/dashboard/register-hit';
+                $event->rules['register-hit'] = 'hf-dashboard/dashboard/register-hit';
             }
         );
 
