@@ -32,7 +32,7 @@ class Plugin extends BasePlugin
     /**
      * @var Plugin
      */
-    private static $plugin;
+    public static $plugin;
     public string $schemaVersion = '1.0';
     public bool $hasCpSettings = true;
     public bool $hasCpSection = true;
