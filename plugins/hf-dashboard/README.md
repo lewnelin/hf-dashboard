@@ -1,21 +1,16 @@
-# hf-dashboard
+# Health First Hit Dashboard
 
 Widged to show a chart with the number of received hits from lead pages
 
 ## Requirements
 
-This plugin requires Craft CMS 4.3.6.1 or later, and PHP 8.0.2 or later.
+This plugin requires
+ * Craft CMS 4.3.6.1 or later
+ * PHP 8.0.2 or later
 
 ## Installation
 
-You can install this plugin from the Plugin Store or with Composer.
-
-#### From the Plugin Store
-
-Go to the Plugin Store in your project’s Control Panel and search for “hf-dashboard”. Then press “Install”.
-
-#### With Composer
-
+You can install this plugin with Composer.<br>
 Open your terminal and run the following commands:
 
 ```bash
@@ -33,15 +28,35 @@ composer require healthfirst/hf-dashboard
 
 Send a Post to the path
 ```bash
- /hfdashboard/dashboard/register-hit
+ /register-hit
 ```
 
 The expected json format is
 ```bash
  {
-    
+    "ip", //String
+    "site", //String
+    "laguage", //String
+    "url", //String
+    "formInfo" //Json Object
  }
 ```
 
+###The expected return
+Will be a json with the success true or false depending on the result
 
+#### Success
+```bash
+ {
+    "success": true
+ }
+```
+
+####In case of error
+```bash
+ {
+    "success": false,
+    "error": ["Error messages"]
+ }
+```
 
