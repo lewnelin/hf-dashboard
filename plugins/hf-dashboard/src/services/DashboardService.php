@@ -3,23 +3,17 @@
 namespace healthfirst\hfdashboard\services;
 
 use Craft;
-use Exception;
 use GuzzleHttp\Exception\GuzzleException;
+use healthfirst\hfdashboard\models\AccessModel;
+use healthfirst\hfdashboard\records\AccessRecord;
 use RuntimeException;
-use Twig\Error\LoaderError;
-use Twig\Error\RuntimeError;
-use Twig\Error\SyntaxError;
 use craft\base\Component;
 use craft\helpers\App;
 use craft\helpers\Json;
-use craft\helpers\Queue;
-use healthfirst\healthfirstrefer\jobs\FormServerJob;
-use healthfirst\healthfirstrefer\records\AccessRecord;
-use yii\base\InvalidConfigException;
 
 class DashboardService extends Component
 {
-    
+
     /**
      * @param $data
      * @return string
@@ -35,7 +29,7 @@ class DashboardService extends Component
      */
     private function saveRecord($data): array
     {
-        $model = new FormModel();
+        $model = new AccessModel();
         $record = new AccessRecord();
 
         foreach ($model->attributes as $key => $value) {
@@ -57,7 +51,7 @@ class DashboardService extends Component
      */
     private function modelData($data): array
     {
-        $model = new FormModel();
+        $model = new AccessModel();
 
         $payload = [];
 
@@ -77,15 +71,10 @@ class DashboardService extends Component
         return $payload;
     }
 
-    
     /**
      * @param $data
      * @param bool $unit
      * @return array|bool[]
-     * @throws LoaderError
-     * @throws RuntimeError
-     * @throws SyntaxError
-     * @throws \yii\base\Exception
      */
     public function processData($data, bool $unit = false): array
     {
@@ -96,27 +85,18 @@ class DashboardService extends Component
 
         $record = $this->saveRecord($data);
 
-        if ($record['result']) {
-
-            // if email sending is active
-            if (App::env('EMAIL_SEND')) {
-                $this->createEmail($data);
-            }
-
-            //if (App::env('TEAMS_NOTIF_ON') == 1 &&
-            //    Craft::$app->plugins->isPluginInstalled('healthfirstteams')) {
-            //
-            //    Teams::$plugin->teamsService->sendMessage(
-            //        'HF Refer Form<br>' .
-            //        'New form submission ID: ' . $record['id']
-            //    );
-            //}
-
-            Queue::push(new FormServerJob([
-                'id' => $record['id'],
-                'data' => $this->modelData($data)
-            ]), 11);
-        }
+//        if ($record['result']) {
+//
+//            // if email sending is active
+//            if (App::env('EMAIL_SEND')) {
+//                $this->createEmail($data);
+//            }
+//
+//            Queue::push(new FormServerJob([
+//                'id' => $record['id'],
+//                'data' => $this->modelData($data)
+//            ]), 11);
+//        }
 
         return ['success' => true];
     }
