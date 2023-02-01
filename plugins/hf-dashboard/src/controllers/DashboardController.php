@@ -7,7 +7,6 @@ use craft\web\Controller;
 use healthfirst\hfdashboard\Plugin;
 use yii\web\Response;
 use healthfirst\hfdashboard\models\AccessModel;
-use healthfirst\hfdashboard\records\AccessRecord;
 
 /**
  * Dashboard controller
@@ -18,6 +17,8 @@ class DashboardController extends Controller
     protected array|int|bool $allowAnonymous = [
         'register-hit',
     ];
+
+    public $enableCsrfValidation = false;
 
     /**
      * hf-dashboard/register-hit action

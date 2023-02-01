@@ -32,7 +32,7 @@
         "developer": "Arthur Nascimento",
         "documentationUrl": "https://github.com/lewnelin/hf-dashboard",
         "components": {
-            "formService": "healthfirst\\hfdashboard\\services\\DashboardService"
+            "dashboardService": "healthfirst\\hf-dashboard\\services\\DashboardService"
         }
     },
     "scripts": {
