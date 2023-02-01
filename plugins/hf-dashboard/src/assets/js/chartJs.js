@@ -4,7 +4,7 @@ $(document).ready(function () {
     const ctx = document.getElementById('myPieChart');
 
     var labels = graphdata.map(function(e) {
-        return e.page;
+        return e.site;
     });
     var data = graphdata.map(function(e) {
         return e.cnt;
