@@ -23,11 +23,10 @@ class AccessMonitorVariable
         $query = new Query();
 
         // compose the query
-        $query->select(['COUNT(*) AS cnt', 'page'])
+        $query->select(['COUNT(*) AS cnt', 'site'])
             ->from('access_monitor')
-            ->groupBy('page');
-        $rows = $query->all();
+            ->groupBy('site');
 
-        return $rows;
+        return $query->all();
     }
 }
