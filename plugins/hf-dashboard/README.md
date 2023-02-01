@@ -1,6 +1,6 @@
 # hf-dashboard
 
-Dashboard to show receiving forms from pages
+Widged to show a chart with the number of received hits from lead pages
 
 ## Requirements
 
@@ -28,3 +28,20 @@ composer require healthfirst/hf-dashboard
 # tell Craft to install the plugin
 ./craft plugin/install hf-dashboard
 ```
+
+## Registering the Hits
+
+Send a Post to the path
+```bash
+ /hfdashboard/dashboard/register-hit
+```
+
+The expected json format is
+```bash
+ {
+    
+ }
+```
+
+
+

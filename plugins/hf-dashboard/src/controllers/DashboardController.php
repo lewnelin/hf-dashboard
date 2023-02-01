@@ -15,7 +15,7 @@ use healthfirst\hfdashboard\records\AccessRecord;
 class DashboardController extends Controller
 {
 
-    protected array $allowAnonymous = [
+    protected array|int|bool $allowAnonymous = [
         'register-hit',
     ];
 
